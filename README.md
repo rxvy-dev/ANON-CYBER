@@ -33,7 +33,7 @@ Built for quick, authorized recon work: CTFs, labs, and pentests where you alrea
 Plus:
 - 🔧 Built-in dependency installer
 - 🖥️ Simple interactive terminal menu
-- 🎨 Customizable ASCII banner and colors
+- 🎨 Customizable ASCII banner
 - 🔗 All traffic routed through ProxyChains
 
 ---
