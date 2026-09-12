@@ -1,26 +1,47 @@
-A lightweight Python CLI for launching common cybersecurity and reconnaissance tools through ProxyChains.
- 
-Created by **rxvy**.
- 
-## Features
- 
-- Nmap — network and port scanning
-- Nikto — web server security testing
-- WHOIS — domain registration information
-- FTP — FTP connections
-- DIRB — web directory enumeration
-- Subfinder — passive subdomain discovery
-- Nmap `-O` — operating-system detection
-- Built-in dependency installer
-- Simple interactive terminal menu
-- Customizable ASCII banner and colors
- 
-## Requirements
- 
-Designed primarily for Arch Linux / BlackArch.
- 
-The project uses:
- 
+<div align="center">
+
+# ⚡ ANON CYBER CLI
+
+**A lightweight Python CLI for launching common cybersecurity and reconnaissance tools through ProxyChains.**
+
+Created by **rxvy**
+
+</div>
+
+---
+
+## 📖 Overview
+
+ANON CYBER CLI wraps a handful of well-known recon and security-testing tools behind a single, simple terminal menu — routing traffic through ProxyChains by default. Instead of memorizing flags for Nmap, Nikto, WHOIS, DIRB, and Subfinder, pick a number and enter a target.
+
+Built for quick, authorized recon work: CTFs, labs, and pentests where you already have permission to test.
+
+---
+
+## ✨ Features
+
+| Tool | Purpose |
+|------|---------|
+| **Nmap** | Network and port scanning |
+| **Nmap `-O`** | Operating system detection |
+| **Nikto** | Web server security testing |
+| **WHOIS** | Domain registration lookups |
+| **FTP** | Quick FTP connections |
+| **DIRB** | Web directory enumeration |
+| **Subfinder** | Passive subdomain discovery |
+
+Plus:
+- 🔧 Built-in dependency installer
+- 🖥️ Simple interactive terminal menu
+- 🎨 Customizable ASCII banner and colors
+- 🔗 All traffic routed through ProxyChains
+
+---
+
+## 📋 Requirements
+
+Designed primarily for **Arch Linux / BlackArch**.
+
 - Python 3
 - ProxyChains
 - Nmap
@@ -29,69 +50,76 @@ The project uses:
 - inetutils
 - DIRB
 - Subfinder
- 
-## Installation
- 
-Clone the repository:
- 
+
+Missing tools can be installed automatically via the built-in installer in the menu.
+
+---
+
+## 🚀 Installation
+
+Download `cybersec.py` from this repository, then run it:
+
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd YOUR_REPOSITORY_NAME
- 
-Run the program:
- 
 python3 cybersec.py
- 
-You can use the install option from the menu to install the required tools on Arch Linux.
-Usage
- 
-Start the program:
- 
+```
+
+From the menu, select the install option to pull in the required tools on Arch Linux.
+
+---
+
+## 🕹️ Usage
+
+Launch the CLI:
+
+```bash
 python3 cybersec.py
- 
-Select an option from the menu and enter the target when prompted.
- 
-Example:
- 
+```
+
+Pick a numbered option, then enter your target when prompted.
+
+**Example:**
+
+```
 Choose: 1
 ip or url: scanme.nmap.org
- 
-Only test targets where you have permission.
-Customization
- 
-ANON CYBER CLI is designed to be easy to modify.
- 
-You can:
- 
-    Change the ASCII banner
-    Change terminal colors
-    Add new tools
-    Remove tools
-    Add new menu options
-    Add error handling
-    Add logging
-    Add configuration options
-    Improve the interface
-    Add your own features
- 
-Legal & Ethical Use
- 
-This project is intended for educational purposes, CTFs, security research, and authorized security testing.
- 
-Only use these tools against systems you own or systems for which you have explicit permission to test.
- 
-Do not scan or test websites, networks, servers, or devices without authorization.
- 
-The author is not responsible for misuse of this software.
-Credits
- 
-Created and maintained by rxvy.
- 
-ANON CYBER CLI is an open-source project. You are free to study, modify, improve, and contribute to the project according to the terms of the included license.
-License
- 
-This project is licensed under the MIT License.
- 
-See the LICENSE file for details.
- 
-⭐ If you find ANON CYBER CLI useful, consider starring the repository!
+```
+
+> ⚠️ Only test targets you own or have explicit permission to test.
+
+---
+
+## 🛠️ Customization
+
+ANON CYBER CLI is intentionally simple so it's easy to extend. Common tweaks:
+
+- Change the ASCII banner
+- Change terminal colors
+- Add or remove tools
+- Add new menu options
+- Add error handling and logging
+- Add configuration options
+- Improve the interface
+
+---
+
+## ⚖️ Legal & Ethical Use
+
+This project is intended for **educational purposes, CTFs, security research, and authorized security testing only**.
+
+- Only run these tools against systems you own or have explicit written permission to test.
+- Do not scan or test websites, networks, servers, or devices without authorization.
+- The author is not responsible for misuse of this software.
+
+---
+
+## 🙌 Credits
+
+Created and maintained by **rxvy**.
+
+---
+
+<div align="center">
+
+⭐ If you find **ANON CYBER CLI** useful, consider starring the repository!
+
+</div>
