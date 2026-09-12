@@ -6,6 +6,8 @@
 
 Created by **rxvy**
 
+![ANON CYBER CLI screenshot](image.png)
+
 </div>
 
 ---
@@ -33,7 +35,7 @@ Built for quick, authorized recon work: CTFs, labs, and pentests where you alrea
 Plus:
 - 🔧 Built-in dependency installer
 - 🖥️ Simple interactive terminal menu
-- 🎨 Customizable ASCII banner
+- 🎨 Customizable ASCII banner and colors
 - 🔗 All traffic routed through ProxyChains
 
 ---
