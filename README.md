@@ -21,7 +21,7 @@
 
 <br>
 
-<img src="assets/menu-preview.svg" alt="RXVY RECON menu preview" width="820">
+<img src="menu-preview.svg" alt="RXVY RECON menu preview" width="820">
 
 <br><br>
 
