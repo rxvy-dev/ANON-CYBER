@@ -2,68 +2,55 @@
 
 ![rxvy-recon banner](banner.svg)
 
-[![License](https://img.shields.io/badge/license-Open%20Source-ff1a1a?style=flat-square)](#license)
-[![Python](https://img.shields.io/badge/python-3.x-ff1a1a?style=flat-square)](#requirements)
-[![Platform](https://img.shields.io/badge/platform-Arch%20%2F%20BlackArch-ff1a1a?style=flat-square)](#requirements)
-[![Version](https://img.shields.io/badge/version-3.0-ff1a1a?style=flat-square)](#)
-[![PRs](https://img.shields.io/badge/PRs-welcome-ff1a1a?style=flat-square)](#contributing)
-
-**One menu. Every recon tool you need. Zero flag-memorizing.**
-
-*A lightweight Python CLI that wraps common reconnaissance and security-testing tools behind a single menu, routed through ProxyChains by default.*
-
 </div>
 
----
+```
+============================================================
+  rxvy-recon                                          v3.0
+  open source · menu-driven · proxychains-first
+============================================================
+```
 
-## Table of Contents
+`rxvy-recon` collapses a dozen separate recon and security-testing
+tools into one numbered menu. Pick a number, give it a target,
+it runs — through ProxyChains, by default, every time.
 
-- [Overview](#overview)
-- [Why rxvy-recon](#why-rxvy-recon)
-- [Tools Included](#tools-included)
-- [Screenshots](#screenshots)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [ProxyChains Setup](#proxychains-setup)
-- [Menu Reference](#menu-reference)
-- [Customization](#customization)
-- [Roadmap Ideas](#roadmap-ideas)
-- [Troubleshooting](#troubleshooting)
-- [Legal & Ethical Use](#legal--ethical-use)
-- [Contributing](#contributing)
-- [Credits](#credits)
+No flags to memorize. No man pages mid-engagement. Just the menu.
 
 ---
 
-## Overview
+## ▓▓ What it actually does
 
-`rxvy-recon` turns a dozen separate command-line tools into a single, numbered menu. No flags to remember, no man pages to check mid-engagement — pick a tool, supply a target, and it runs.
+You run the script, you get a menu. You type a number, it asks
+for a target if it needs one, and it launches the real tool —
+`nmap`, `nikto`, `sqlmap`, whatever you picked — through
+`proxychains`, in your terminal, with the real output. There's
+no abstraction layer hiding what's happening; the menu is just
+a faster way to type the command you'd type anyway.
 
-Everything routes through **ProxyChains** by default. Tor and VPN management are built directly into the menu, so switching your exit point doesn't mean leaving the tool.
+Tor and VPN control live in the same menu, as submenus, so
+switching your exit node doesn't mean tabbing away from the tool.
 
-## Why rxvy-recon
+## ▓▓ Tools on the menu
 
-- **Fast** — every tool is one keypress and one input away
-- **Consistent** — the same interaction pattern (choose &#8594; target &#8594; run) across every tool
-- **Proxy-first** — ProxyChains is baked into every scan command, not an afterthought
-- **Self-installing** — a built-in installer pulls every dependency in one pass
-- **Hackable** — plain Python, no framework, easy to add your own tools or menus
+```
+  RECON & SCANNING          WEB TESTING           OSINT
+  ─────────────────         ─────────────         ─────────────
+  Nmap                      Nikto                 Holehe
+  Nmap -O (OS detect)       SQLMap                Sherlock
+  WHOIS                     WPScan
+  Subfinder
+  DIRB                      INFRASTRUCTURE        SOCIAL ENG.
+                            ─────────────         ─────────────
+  NETWORK UTILITIES         FTP                   ZPhisher
+  ─────────────────         Tor Control
+  MacChanger                VPN Manager
+                            (Mullvad / Proton / Riseup)
+```
 
-## Tools Included
+15 tools, one entry point.
 
-| Category | Tools |
-|---|---|
-| **Recon & Scanning** | Nmap &#183; Nmap `-O` (OS detection) &#183; WHOIS &#183; Subfinder &#183; DIRB |
-| **Web Testing** | Nikto &#183; SQLMap &#183; WPScan |
-| **OSINT** | Holehe &#183; Sherlock |
-| **Social Engineering** | ZPhisher |
-| **Infrastructure** | FTP &#183; Tor Control &#183; VPN Manager (Mullvad / Proton / Riseup) |
-| **Network Utilities** | MacChanger |
-
-15 tools total, all reachable from one main menu.
-
-## Screenshots
+## ▓▓ Screenshots
 
 <div align="center">
 
@@ -77,33 +64,34 @@ Everything routes through **ProxyChains** by default. Tor and VPN management are
 
 </div>
 
-## Requirements
+## ▓▓ Requirements
 
-- Linux (built and tested on Arch / BlackArch)
+- Linux — built and run on Arch / BlackArch
 - Python 3
-- `sudo` access (required for OS detection, MacChanger, and service management)
-- [`yay`](https://github.com/Jguer/yay) for AUR packages (Holehe, Sherlock, Riseup VPN)
+- `sudo` — needed for OS detection, MacChanger, and Tor service control
+- [`yay`](https://github.com/Jguer/yay) — needed for the AUR packages (Holehe, Sherlock, Riseup VPN)
 
-## Installation
+## ▓▓ Getting it running
 
-### Option 1 — Built-in installer
-
-Run the script and choose the install option from the main menu:
+**Let the tool install its own dependencies:**
 
 ```bash
 python3 rxvyrecon.py
 ```
 
-Then select **`[I] Install Dependencies`**. This will:
+Choose `[I] Install Dependencies` from the main menu. It will,
+in order:
 
-1. Install core tools via `pacman` (Nmap, Nikto, WHOIS, DIRB, Subfinder, ProxyChains, SQLMap, MacChanger, etc.)
-2. Install AUR tools via `yay` (Holehe, Sherlock)
-3. Pull and run the BlackArch strap script
+1. Pull the core tools through `pacman` (Nmap, Nikto, WHOIS, DIRB, Subfinder, ProxyChains, SQLMap, MacChanger)
+2. Pull AUR tools through `yay` (Holehe, Sherlock)
+3. Fetch and run the BlackArch strap script
 4. Clone [ZPhisher](https://github.com/htr-tech/zphisher)
 
-> ⚠️ **Heads up:** the BlackArch strap script's SHA256 is **not verified** by this installer. It could theoretically be corrupted or DNS-spoofed in transit. Review `strap.sh` yourself before running if that matters for your threat model.
+> The BlackArch strap script's SHA256 is **not verified** here.
+> It could theoretically be corrupted or spoofed in transit —
+> read `strap.sh` yourself first if that matters to you.
 
-### Option 2 — Manual install
+**Or install everything by hand:**
 
 ```bash
 sudo pacman -S nmap nikto whois inetutils dirb subfinder proxychains python-requests sqlmap macchanger
@@ -111,104 +99,108 @@ yay -S holehe sherlock
 git clone --depth=1 https://github.com/htr-tech/zphisher.git
 ```
 
-## Usage
+## ▓▓ Using it
 
-```bash
+```
 $ python3 rxvyrecon.py
 Choose: 1
 ip or url: scanme.nmap.org
 ```
 
-That's the whole interaction model: pick a number from the menu, answer the prompt it gives you, watch it run. Submenus (Tor, VPN Manager, MacChanger) follow the same pattern one level deeper.
+That's the entire interaction model. Number in, target in,
+tool runs. Tor, VPN Manager, and MacChanger are submenus that
+follow the same rhythm one level deeper.
 
-## ProxyChains Setup
+## ▓▓ ProxyChains
 
-Every scanning command in `rxvy-recon` is prefixed with `proxychains`. Before running real scans:
+Every scan command here is prefixed with `proxychains`. Before
+you rely on it:
 
-1. Confirm `/etc/proxychains.conf` (or your configured path) points to a working proxy
-2. Test the chain manually once outside the tool if you're unsure it's working
-3. If you don't want to route through ProxyChains at all, remove it from the relevant commands directly in the script — every tool call is a single `subprocess.run([...])` line, so this is a one-word edit per tool
+- Point `/etc/proxychains.conf` at a proxy that actually works
+- Test the chain once outside the tool if you're not sure it's live
+- If you don't want it at all, pull `proxychains` out of the relevant
+  `subprocess.run([...])` line — it's a one-word edit per tool,
+  there's no config flag to hunt for
 
-## Menu Reference
+## ▓▓ Menu reference
 
-| # | Tool | Prompt | Notes |
+| # | Tool | Asks for | Notes |
 |---|---|---|---|
-| 1 | Nmap | `ip or url` | Standard port scan |
-| 2 | Nikto | `ip or url` | Web server scan |
-| 3 | WHOIS | `website/url` | Domain/IP lookup |
-| 4 | FTP | `url` | Opens an FTP connection |
-| 5 | DIRB | `url` | Directory enumeration |
-| 6 | Subfinder | `website/url` | Passive subdomain discovery |
-| 7 | Nmap `-O` | `ip or url` | OS detection — requires `sudo` |
-| 8 | Tor | — | Submenu: on / off / restart |
-| 9 | VPN Manager | — | Submenu: Mullvad / Proton / Riseup |
-| 10 | Holehe | `email` | Checks email exposure across sites |
-| 11 | ZPhisher | — | Launches the ZPhisher script |
-| 12 | Sherlock | `username(s)` | Username OSINT across platforms |
-| 13 | SQLMap | — | Launches the interactive wizard |
-| 14 | WPScan | `URL` | WordPress security scan |
-| 15 | MacChanger | — | Submenu: randomize a chosen interface — requires `sudo` |
-| I | Install Dependencies | — | Runs the full installer |
-| Q | Exit | — | Quits the tool |
+| 1 | Nmap | ip or url | standard port scan |
+| 2 | Nikto | ip or url | web server scan |
+| 3 | WHOIS | website/url | domain / IP lookup |
+| 4 | FTP | url | opens an FTP connection |
+| 5 | DIRB | url | directory enumeration |
+| 6 | Subfinder | website/url | passive subdomain discovery |
+| 7 | Nmap `-O` | ip or url | OS detection — needs `sudo` |
+| 8 | Tor | — | submenu: on / off / restart |
+| 9 | VPN Manager | — | submenu: Mullvad / Proton / Riseup |
+| 10 | Holehe | email | email exposure across sites |
+| 11 | ZPhisher | — | launches the ZPhisher script |
+| 12 | Sherlock | username(s) | username OSINT |
+| 13 | SQLMap | — | launches the interactive wizard |
+| 14 | WPScan | URL | WordPress security scan |
+| 15 | MacChanger | — | submenu: randomize an interface — needs `sudo` |
+| I | Install Dependencies | — | runs the full installer |
+| Q | Exit | — | quits |
 
-## Customization
+## ▓▓ Making it yours
 
-This project is intentionally simple and built to be modified. A few directions:
+The whole thing is one Python file with an if/elif chain — there's
+no framework to learn before you can change something. Reasonable
+places to start:
 
-- Swap the ASCII banners and color scheme
-- Add or remove tools from the menu
-- Add new "Manager"-style submenus (see [Roadmap Ideas](#roadmap-ideas))
-- Improve error handling for missing dependencies
-- Add scan logging or session history
-- Add configuration/profile support (default interface, wordlist, proxy toggle)
-- Add non-interactive/argument-based usage alongside the menu
+- Different ASCII banner, different color, different everything
+- Add or drop tools from the menu
+- New submenus in the same boxed style as Tor / VPN / MacChanger
+- Real error handling for tools that aren't installed yet
+- A log of what ran, against what target, when
+- A config file for defaults — interface, wordlist, whether to use ProxyChains at all
 
-## Roadmap Ideas
+## ▓▓ Not built yet
 
-Not implemented yet — listed here as a starting point for contributors:
+Ideas sitting on the shelf, if you want somewhere to start
+contributing:
 
-- **Proxy Manager** — view/edit/test the ProxyChains config from inside the tool
-- **Interface Manager** — detect real network interfaces instead of hardcoding names (fixes MacChanger needing manual edits per machine)
-- **Scan history / logging** — record tool, target, and timestamp per run
-- **Dependency checker** — verify what's installed without running the full installer
-- **Config file** — persist a default interface, wordlist, or proxy toggle between sessions
+- **Proxy Manager** — view, edit, and test the ProxyChains config from inside the menu
+- **Interface Manager** — detect real interfaces instead of the hardcoded `enp4s0` / `wlp5s0` in MacChanger
+- **Scan log** — tool, target, timestamp, written somewhere you can review later
+- **Dependency check** — see what's missing without running the full installer
 
-## Troubleshooting
+## ▓▓ When something breaks
 
-**A tool exits immediately with "command not found"**
-It isn't installed yet. Run `[I] Install Dependencies`, or install that one tool manually.
+**"command not found" the moment you pick a tool**
+It's not installed. Run `[I] Install Dependencies`, or grab that one tool by hand.
 
-**MacChanger fails or targets the wrong interface**
-The interface names (`enp4s0`, `wlp5s0`) are hardcoded and specific to the original setup. Run `ip link show` to find your actual interface names and edit them into the script.
+**MacChanger errors out or hits the wrong card**
+`enp4s0` / `wlp5s0` are hardcoded to the original machine. Run `ip link show`, find your real interface names, drop them in.
 
-**Nmap `-O` (OS detection) fails**
-This requires `sudo` — the menu option already runs it with elevated privileges, so make sure your user has sudo access.
+**Nmap `-O` fails**
+It needs `sudo` — the menu already runs it elevated, so check your user actually has sudo access.
 
-**A scan seems to hang or fail silently**
-Check that ProxyChains is actually pointed at a working, reachable proxy — see [ProxyChains Setup](#proxychains-setup).
+**A scan just... hangs**
+Almost always the proxy. Confirm ProxyChains is pointed at something that's actually up.
 
-## Legal & Ethical Use
+## ▓▓ Legal
 
-For educational use, CTFs, security research, and authorized security testing only.
+Educational use, CTFs, security research, and authorized testing
+only. **Only point these tools at systems you own or have explicit
+permission to test.** Unauthorized scanning is illegal in most
+places. None of this is on the author if you misuse it.
 
-**Only run these tools against systems you own or have explicit permission to test.** Unauthorized scanning is illegal in most jurisdictions. The author is not responsible for any misuse of this software.
+## ▓▓ Contributing
 
-## Contributing
+Fork it, break it, fix it, send a PR. Open an issue if you want
+a tool added and don't want to build it yourself. If you add a
+submenu, keep the boxed header + numbered options + a way back
+to the main menu — that's the one convention worth keeping.
 
-This is an open-source project — forks, pull requests, and improvements are welcome.
+## ▓▓ Credits
 
-- Open a GitHub issue for bugs or feature requests
-- Open a PR for new tools, submenus, or fixes
-- Keep new menu options consistent with the existing style (boxed headers, numbered options, a way back to the main menu)
+Built and maintained by **rxvy**.
 
-## Credits
-
-Created and maintained by **rxvy**.
-
----
-
-<div align="center">
-
-*If rxvy-recon is useful to your workflow, consider starring the repo.*
-
-</div>
+```
+============================================================
+  star the repo if it's useful to you. that's the whole ask.
+============================================================
+```
