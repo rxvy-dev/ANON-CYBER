@@ -11,17 +11,17 @@
 
 ### One terminal. Every recon tool you actually use.
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=900&color=FF5F56&center=true&vCenter=true&width=700&height=50&lines=%3E+Recon.+Research.+Security.;%3E+14+tools.+One+menu.+Zero+memorized+flags.;%3E+Built+for+Arch+%2F+BlackArch.;%3E+python3+rxvyrecon.py_" alt="Typing SVG" />
+
 [![Platform](https://img.shields.io/badge/platform-Arch%20%2F%20BlackArch-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](#-requirements)
 [![Python](https://img.shields.io/badge/python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](#-requirements)
 [![Version](https://img.shields.io/badge/version-v3.0-success?style=for-the-badge)](#)
+[![Tools](https://img.shields.io/badge/tools-14-ff5f56?style=for-the-badge)](#-tools)
 [![License](https://img.shields.io/badge/license-Educational%20Use-orange?style=for-the-badge)](#%EF%B8%8F-legal)
-[![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen?style=for-the-badge)](#)
-
-<img src="image3.png" alt="RXVY RECON" width="900">
 
 <br>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=E53935&center=true&vCenter=true&width=650&lines=Recon.+Research.+Security.;14+tools.+One+menu.+Zero+memorized+flags.;Built+for+Arch+%2F+BlackArch." alt="Typing SVG" />
+<img src="assets/menu-preview.svg" alt="RXVY RECON menu preview" width="820">
 
 <br><br>
 
@@ -45,7 +45,10 @@
 
 > Pick a tool → drop in a target → hit enter. That's the whole workflow.
 
-<div align="center">
+Built for **CTFs**, home labs, security research, and **authorized** penetration testing.
+
+<details>
+<summary>📋 Plain-text menu (click to expand / copy)</summary>
 
 ```
                          RXVY-RECON v3.0
@@ -72,9 +75,7 @@
         [I]  Install Dependencies         [Q] Exit
 ```
 
-</div>
-
-Built for **CTFs**, home labs, security research, and **authorized** penetration testing.
+</details>
 
 <br>
 
