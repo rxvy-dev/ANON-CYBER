@@ -4,7 +4,7 @@
 
 **A lightweight Python CLI for launching common cybersecurity and reconnaissance tools through ProxyChains.**
 
-Created by **rxvy**
+Created by **rxvy** · Version 2.0
 
 ![ANON CYBER CLI screenshot](image.png)
 
@@ -31,10 +31,13 @@ Built for quick, authorized recon work: CTFs, labs, and pentests where you alrea
 | **FTP** | Quick FTP connections |
 | **DIRB** | Web directory enumeration |
 | **Subfinder** | Passive subdomain discovery |
+| **Holehe** | Check an email against site logins |
 
 Plus:
-- 🔧 Built-in dependency installer
-- 🖥️ Simple interactive terminal menu
+- 🔧 Built-in dependency installer (Arch/BlackArch)
+- 🧅 Tor install / enable / disable / restart from the menu
+- 🔐 VPN installer (Mullvad, Proton, Riseup)
+- 🖥️ Simple interactive terminal menu with a typing intro
 - 🎨 Customizable ASCII banner and colors
 - 🔗 All traffic routed through ProxyChains
 
@@ -45,27 +48,31 @@ Plus:
 Designed primarily for **Arch Linux / BlackArch**.
 
 - Python 3
-- ProxyChains
+- ProxyChains (configured and connected to a proxy before use)
 - Nmap
 - Nikto
-- WHOIS
-- inetutils
+- WHOIS (inetutils)
+- FTP client
 - DIRB
 - Subfinder
+- Holehe
+- `yay` (for AUR packages, used by the Tor/VPN/Holehe install steps)
 
-Missing tools can be installed automatically via the built-in installer in the menu.
+Missing tools can be installed automatically via the built-in `install` option in the menu.
+
+> ⚠️ The `install` option also downloads and runs BlackArch's `strap.sh` as root. This script's integrity is **not verified** by this tool (no hash check) — you'll see an in-app warning before confirming. Review [BlackArch's install docs](https://blackarch.org) if you want to verify it yourself first.
 
 ---
 
 ## 🚀 Installation
 
-Download `cybersec.py` from this repository, then run it:
+Download `anoncyber.py` from this repository, then run it:
 
 ```bash
-python3 cybersec.py
+python3 anoncyber.py
 ```
 
-From the menu, select the install option to pull in the required tools on Arch Linux.
+From the menu, select `install` to pull in the required tools (Arch/BlackArch only).
 
 ---
 
@@ -74,17 +81,18 @@ From the menu, select the install option to pull in the required tools on Arch L
 Launch the CLI:
 
 ```bash
-python3 cybersec.py
+python3 anoncyber.py
 ```
+
+Make sure ProxyChains is installed and pointed at a working proxy — the menu options assume it's available and will fail otherwise. (If you don't want to use ProxyChains, remove the `proxychains` argument from the relevant commands in the source.)
 
 Pick a numbered option, then enter your target when prompted.
 
 **Example:**
 
-```
 Choose: 1
 ip or url: scanme.nmap.org
-```
+
 
 > ⚠️ Only test targets you own or have explicit permission to test.
 
@@ -110,6 +118,7 @@ This project is intended for **educational purposes, CTFs, security research, an
 
 - Only run these tools against systems you own or have explicit written permission to test.
 - Do not scan or test websites, networks, servers, or devices without authorization.
+- Unauthorized scanning is illegal in most jurisdictions.
 - The author is not responsible for misuse of this software.
 
 ---
