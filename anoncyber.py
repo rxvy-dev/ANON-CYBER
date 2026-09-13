@@ -1,9 +1,9 @@
 # ============================================================
-#                     ANON CYBER CLI
+#                        rxvy-recon CLI
 # ============================================================
 #
 #   Created by : rxvy
-#   Version    : 2.0
+#   Version    : 3,0
 #   License    : Open Source
 #
 # ------------------------------------------------------------
@@ -77,15 +77,28 @@
  
 RED = "\033[91m"
 #    BEING HONEST THIS TYPING ANIMATION WAS MADE BY CLAUDE, JUST THIS LINE I JUST DONT KNOW HOW TO DO THIS IN PYTHON YET!
-type_fx = lambda text, delay=0.005: [((sys.stdout.write(c), sys.stdout.flush(), time.sleep(delay))) for c in text]
+def asdians(text, delay=0.05):
+    for c in text:
+        print(c, end='', flush=True)
+        time.sleep(delay)
+    return ""
+
+def menus(text, delay=0.03):
+    for line in text.splitlines():
+        print(line, flush=True)
+        time.sleep(delay)
+
+
 
 # for commands
 import subprocess
 # for animations.
 import sys
 import time
-def warn():
-    type_fx("""
+import random
+    
+def menu():
+    menus(RED + """     
    For educational use, CTFs, security research, and
    authorized security testing only.
 
@@ -94,80 +107,93 @@ def warn():
    illegal in most jurisdictions.
 
    The author is not responsible for any misuse of this
-   software.""")
-    
-def menu():
-    print(RED + """
- 
-  ▄████████ ███▄▄▄▄    ▄██████▄  ███▄▄▄▄         ▄████████  ▄██   ▄   ▀█████████▄     ▄████████    ▄████████ 
-  ███    ███ ███▀▀▀██▄ ███    ███ ███▀▀▀██▄      ███    ███ ███   ██▄   ███    ███   ███    ███   ███    ███ 
-  ███    ███ ███   ███ ███    ███ ███   ███      ███    █▀  ███▄▄▄███   ███    ███   ███    █▀    ███    ███ 
-  ███    ███ ███   ███ ███    ███ ███   ███      ███        ▀▀▀▀▀▀███  ▄███▄▄▄██▀   ▄███▄▄▄      ▄███▄▄▄▄██▀ 
-▀███████████ ███   ███ ███    ███ ███   ███      ███        ▄██   ███ ▀▀███▀▀▀██▄  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   
-  ███    ███ ███   ███ ███    ███ ███   ███      ███    █▄  ███   ███   ███    ██▄   ███    █▄  ▀███████████ 
-  ███    ███ ███   ███ ███    ███ ███   ███      ███    ███ ███   ███   ███    ███   ███    ███   ███    ███ 
-  ███    █▀   ▀█   █▀   ▀██████▀   ▀█   █▀       ████████▀   ▀█████▀  ▄█████████▀    ██████████   ███    ███ 
-                                                                                                  ███    ███ (anonymous cybersecurity.)
-|----------------------------------------------------------------|
-|YOU NEED PROXYCHAINS CONNECTED TO A PROXY FOR                   |
-|THIS TO WORK IF U DONT THEN REMOVE ALL MENTIONS OF "proxychain"!| 
-|----------------------------------------------------------------|
-install = install all needed programs.                                                                                             
-1 = proxychains nmap (ip) (scans for open ports)
-2 = proxychains nikto (website)
-3 = proxychains whois (ip), (website)
-4 = proxychains ftp (website with ftp anomynous login enabled found in nmap and more.)         
-5 = proxychains dirb (website)
-6 = proxychains subfinder -d (website)
-7 = proxychains nmap -O (ip), (website) (tries to detect the operating system the server is currently running)
-8 = TOR (proxy)
-9 = Choose and install vpns!
-10 = holehe (see emails website logins)
-11 = exit
-
+   software.                                                                                                                                                                                                                                                                                                   
+ ██████▒   ██▓  ▓██  ██▒  ▒██ ███    ███           ██████▒   ████████    ▒████▒   ░████░   ███   ██ 
+ ███████▓  ▒██  ██▒  ██▓  ▓██ ░██▒  ▒██░           ███████▓  ████████   ▓██████   ██████   ███   ██ 
+ ██   ▒██   ██▓▓██   ▒██  ██▒  ███  ███            ██   ▒██  ██        ▒██▒  ░█  ▒██  ██▒  ███▒  ██ 
+ ██    ██   ▒████▒   ▒██  ██▒   ██▒▒██             ██    ██  ██        ██▓       ██▒  ▒██  ████  ██ 
+ ██   ▒██    ████     ██ ░██    ▓████▓             ██   ▒██  ██        ██░       ██    ██  ██▒█▒ ██ 
+ ███████▒    ▒██▒     ██▒▒██     ████              ███████▒  ███████   ██        ██    ██  ██ ██ ██ 
+ ██████▓     ▒██▒     ██▒▒██     ▒██▒              ██████▓   ███████   ██        ██    ██  ██ ██ ██ 
+ ██  ▓██░    ████     ▒████▒      ██               ██  ▓██░  ██        ██░       ██    ██  ██ ▒█▒██ 
+ ██   ██▓   ▒████▒    ░████░      ██               ██   ██▓  ██        ██▓       ██▒  ▒██  ██  ████ 
+ ██   ▒██   ██▒▒██     ████       ██               ██   ▒██  ██        ▒██▒  ░█  ▒██  ██▒  ██  ▒███ 
+ ██    ██▒ ▒██  ██▒    ████       ██               ██    ██▒ ████████   ▓██████   ██████   ██   ███ 
+ ██    ███ ██▓  ▓██    ▓██▓       ██               ██    ███ ████████    ▒████▒   ░████░   ██   ███ 
+                                                                                                    
+╔══════════════════════════════════════════════════════════════════════╗
+║                        ⚠ PROXYCHAINS                                 ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  Make sure ProxyChains is configured with a working proxy.           ║
+║  If you are not using ProxyChains, remove it from the commands.      ║
+╚══════════════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════╗
+║                         RXVY-RECON v2.0                              ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║  [1] Nmap              Scan for open ports                           ║
+║  [2] Nikto             Web server security scanner                   ║
+║  [3] WHOIS             Domain / IP registration information          ║
+║  [4] FTP               Connect to FTP servers                        ║
+║  [5] DIRB              Web directory enumeration                     ║
+║  [6] Subfinder         Passive subdomain discovery                   ║
+║  [7] Nmap -O           Operating-system detection                    ║
+║                                                                      ║
+║  [8] Tor               Tor service / proxy management                ║
+║  [9] VPN Manager       Install and manage VPN options                ║
+║                                                                      ║
+║  [10] Holehe           Check email account exposure                  ║
+║  [11] ZPhisher         Phishing simulation tool                      ║
+║  [12] Sherlock         Username OSINT                                ║
+║                                                                      ║
+║  [13] SQLMap           SQL injection testing                         ║
+║  [14] WPScan           WordPress security scanner                    ║
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  [I] Install Dependencies                         [Q] Exit           ║
+╚══════════════════════════════════════════════════════════════════════╝
     """)
  
 def main():
-   warn()
    while True:
         menu()
 
         choice = input("Choose:")
  
         if choice == '1':
-            nmapchoice = input("ip or url:")
+            nmapchoice = input(asdians("ip or url:"))
             subprocess.run(['proxychains', 'nmap', nmapchoice])
  
         elif choice == '2':
-            niktochoice = input("ip or url:")
+            niktochoice = input(asdians("ip or url:"))
             subprocess.run(['proxychains', 'nikto', '-host', niktochoice])
  
         elif choice == '3':
-            whoischoice = input("website/url:")
+            whoischoice = input(asdians("website/url:"))
             subprocess.run(['proxychains', 'whois', whoischoice])
  
         elif choice == '4':
-            ftpchoice = input("url:")
+            ftpchoice = input(asdians("url:"))
             subprocess.run(['proxychains', 'ftp', ftpchoice])
  
         elif choice == '5':
-            dirbchoice = input("url:")
+            dirbchoice = input(asdians("url:"))
             subprocess.run(['proxychains', 'dirb', dirbchoice])
  
         elif choice == '6':
-            subfinderchoice = input("website/url:")
+            subfinderchoice = input(asdians("website/url:"))
             subprocess.run(['proxychains', 'subfinder', '-d', subfinderchoice])
  
  
         elif choice == '7':
-            nmapOchoice = input("ip or url:")
+            nmapOchoice = input(asdians("ip or url:"))
  
 #       SUDO IS NEEDED FOR -O ON NMAP!
  
             subprocess.run(['sudo', 'proxychains', 'nmap', '-O', nmapOchoice])
 
         elif choice == '8':
-            print("""                                                              
+            menus("""                                                              
                                                               
 TTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO     RRRRRRRRRRRRRRRRR   
 T:::::::::::::::::::::T   OO:::::::::OO   R::::::::::::::::R  
@@ -190,33 +216,36 @@ TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
 1 = ON
 2 = OFF 
 3 = RESTART                                                             
-                                                              
+exit = exit                                                             
                                                               
                                                               
                                                               """)
             torchoice = input("?:")
             if torchoice == '1':
-                sure = input("Are you sure you want to preform this action? (y/n):")
+                sure = input(asdians("Are you sure you want to preform this action? (y/n):"))
                 if sure == 'y':
                     subprocess.run(['sudo', 'pacman', '-S', '--needed', 'tor'])
                     subprocess.run(['sudo', 'systemctl', 'enable', '--now', 'tor'])
 
             elif torchoice == '2':
-                sure2 = input("Are you sure you want to preform this action? (y/n):")
+                sure2 = input(asdians("Are you sure you want to preform this action? (y/n):"))
                 if sure2 == 'y':
                     subprocess.run(['sudo', 'pacman', '-S', '--needed', 'tor'])
                     subprocess.run(['sudo', 'systemctl', 'disable', '--now', 'tor'])
 
             elif torchoice == '3':
-                sure3 = input("Are you sure you want to preform this action? (y/n):")
+                sure3 = input(asdians("Are you sure you want to preform this action? (y/n):"))
                 if sure3 == 'y':
                     subprocess.run(['sudo', 'pacman', '-S', '--needed', 'tor'])
                     subprocess.run(['sudo', 'systemctl', 'restart', 'tor'])
+
+            elif torchoice == "exit":
+                break
  
-        elif choice == "install":
-            installchoice = input("are u sure you want to install? (y/n) (WARNING: BlackArch SHA256 ISNT verified from this tool, IT could be dns spoofed, corrupted downloads, etc.):")
+        elif choice == "i":
+            installchoice = input(asdians("are u sure you want to install? (WARNING: BlackArch SHA256 ISNT verified from this tool, IT could be dns spoofed, corrupted downloads, etc.) (y/n):"))
             if installchoice == 'y':
-                type_fx(r"""
+                menus(r"""
   ___         _        _ _      _   _          
  |_ _|_ _  __| |_ __ _| | |__ _| |_(_)___ _ _  
   | || ' \(_-<  _/ _` | | / _` |  _| / _ \ ' \ 
@@ -224,12 +253,13 @@ TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
                                                
                                                
                                                """)
-                subprocess.run(['sudo', 'pacman', '-S', 'nmap', 'nikto', 'whois', 'inetutils', 'dirb', 'subfinder', 'proxychains', 'python-requests'])
-                subprocess.run(['yay', '-S', 'holehe'])
+                subprocess.run(['sudo', 'pacman', '-S', 'nmap', 'nikto', 'whois', 'inetutils', 'dirb', 'subfinder', 'proxychains', 'python-requests', 'sqlmap'])
+                subprocess.run(['yay', '-S', 'holehe', 'sherlock'])
                 subprocess.run(['curl', '-O', 'https://blackarch.org/strap.sh'])
                 subprocess.run(['chmod', '+x', 'strap.sh'])
                 subprocess.run(['sudo', './strap.sh'])
-                type_fx(r"""
+                subprocess.run(['git', 'clone', '--depth=1', 'https://github.com/htr-tech/zphisher.git'])
+                menus(r"""
                   
   ___ _      _    _           _   ___         _        _ _      _   _          
  | __(_)_ _ (_)__| |_  ___ __| | |_ _|_ _  __| |_ __ _| | |__ _| |_(_)___ _ _  
@@ -240,10 +270,10 @@ TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
                                                                                """)
  
             else:
-                 print("OKAY")
+                 asdians("OKAY")
  
         elif choice == '9':
-            type_fx("""
+            menus("""
 ░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓███████▓▒░ 
 ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
  ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
@@ -256,15 +286,16 @@ TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
 1 = Mullvad VPN (Official Repos)
 2 = Proton VPN  (Official Repos)
 3 = Riseup VPN  (AUR - Requires YAY)
+exit = exit
 (open a github issue if u want more added.)
 """)
-            vpnchoice = input("What VPN? (1,2,3):")
+            vpnchoice = input(asdians("What VPN? (1,2,3):"))
 
             if vpnchoice == '1':
                 subprocess.run(['sudo', 'pacman', '-S', 'mullvad-vpn'])
 
             elif vpnchoice == '2':
-                vpnproton = input("GUI or CLI? (1,2):")
+                vpnproton = input(asdians("GUI or CLI? (1,2):"))
                 if vpnproton == '1':
                     subprocess.run(['sudo', 'pacman', '-S', 'proton-vpn-gtk-app'])
 
@@ -272,20 +303,37 @@ TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
                     subprocess.run(['sudo', 'pacman', '-S', 'proton-vpn-cli'])
 
             elif vpnchoice == '3':
-                print("Warning: You need YAY installed.")
+                asdians("Warning: You need YAY installed.")
                 subprocess.run(['yay', '-S', 'riseup-vpn'])
 
+            elif vpnchoice == "exit":
+                break
+
         elif choice == '10':
-            holechoice = input("email?:")
+            holechoice = input(asdians("email?:"))
             subprocess.run(['holehe', holechoice])
 
         elif choice == '11':
-            break
+            subprocess.run(['bash', 'zphisher.sh'], cwd='zphisher')
+
+        elif choice == '12':
+            osintchoice = input(asdians("Username(S):"))
+            subprocess.run(['sherlock', osintchoice])
+
+        elif choice == '13':
+            subprocess.run(['sqlmap', '--wizard'])
+
+        elif choice == '14':
+            wpchoice = input("URL:")
+            subprocess.run(['wpscan', '--url', wpchoice])
+
+        elif choice == 'q':
+            asdians("EXITING RXVY RECON")
 
         else:
-             print("please pick a valid option.")
+             asdians("please pick a valid option.")
 try:
    main()
 except KeyboardInterrupt:
-    print("\nExiting...")
+    asdians("\nExiting...")
     sys.exit(0)
