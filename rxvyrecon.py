@@ -96,7 +96,7 @@ import subprocess
 import sys
 import time
 import random
-    
+
 def menu():
     menus(RED + """     
    For educational use, CTFs, security research, and
@@ -148,6 +148,7 @@ def menu():
 ║                                                                      ║
 ║  [13] SQLMap           SQL injection testing                         ║
 ║  [14] WPScan           WordPress security scanner                    ║
+║  [15] MacChanger       Change your mac address whenever              ║
 ║                                                                      ║
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  [I] Install Dependencies                         [Q] Exit           ║
@@ -156,6 +157,7 @@ def menu():
  
 def main():
    while True:
+        global RED
         menu()
 
         choice = input("Choose:")
@@ -195,28 +197,37 @@ def main():
         elif choice == '8':
             menus("""                                                              
                                                               
-TTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO     RRRRRRRRRRRRRRRRR   
-T:::::::::::::::::::::T   OO:::::::::OO   R::::::::::::::::R  
-T:::::::::::::::::::::T OO:::::::::::::OO R::::::RRRRRR:::::R 
-T:::::TT:::::::TT:::::TO:::::::OOO:::::::ORR:::::R     R:::::R
-TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  R::::R     R:::::R
-        T:::::T        O:::::O     O:::::O  R::::R     R:::::R
-        T:::::T        O:::::O     O:::::O  R::::RRRRRR:::::R 
-        T:::::T        O:::::O     O:::::O  R:::::::::::::RR  
-        T:::::T        O:::::O     O:::::O  R::::RRRRRR:::::R 
-        T:::::T        O:::::O     O:::::O  R::::R     R:::::R
-        T:::::T        O:::::O     O:::::O  R::::R     R:::::R
-        T:::::T        O::::::O   O::::::O  R::::R     R:::::R
-      TT:::::::TT      O:::::::OOO:::::::ORR:::::R     R:::::R
-      T:::::::::T       OO:::::::::::::OO R::::::R     R:::::R
-      T:::::::::T         OO:::::::::OO   R::::::R     R:::::R
-      TTTTTTTTTTT           OOOOOOOOO     RRRRRRRR     RRRRRRR
-                                                              
-                                                              
-1 = ON
-2 = OFF 
-3 = RESTART                                                             
-exit = exit                                                             
+╔══════════════════════════════════════════╗
+║             T O R   C O N T R O L        ║
+╚══════════════════════════════════════════╝
+      _____                   _______                   _____          
+     /\    \                 /::\    \                 /\    \         
+    /::\    \               /::::\    \               /::\    \        
+    \:::\    \             /::::::\    \             /::::\    \       
+     \:::\    \           /::::::::\    \           /::::::\    \      
+      \:::\    \         /:::/~~\:::\    \         /:::/\:::\    \     
+       \:::\    \       /:::/    \:::\    \       /:::/__\:::\    \    
+       /::::\    \     /:::/    / \:::\    \     /::::\   \:::\    \   
+      /::::::\    \   /:::/____/   \:::\____\   /::::::\   \:::\    \  
+     /:::/\:::\    \ |:::|    |     |:::|    | /:::/\:::\   \:::\____\ 
+    /:::/  \:::\____\|:::|____|     |:::|    |/:::/  \:::\   \:::|    |
+   /:::/    \::/    / \:::\    \   /:::/    / \::/   |::::\  /:::|____|
+  /:::/    / \/____/   \:::\    \ /:::/    /   \/____|:::::\/:::/    / 
+ /:::/    /             \:::\    /:::/    /          |:::::::::/    /  
+/:::/    /               \:::\__/:::/    /           |::|\::::/    /   
+\::/    /                 \::::::::/    /            |::| \::/____/    
+ \/____/                   \::::::/    /             |::|  ~|          
+                            \::::/    /              |::|   |          
+                             \::/____/               \::|   |          
+                              ~~                      \:|   |          
+                                                       \|___|          
+╔══════════════════════════════════════════╗
+║  [1] Turn ON                             ║
+║  [2] Turn OFF                            ║
+║  [3] Restart                             ║
+║                                          ║
+║  [4] Back                                ║
+╚══════════════════════════════════════════╝                                            
                                                               
                                                               
                                                               """)
@@ -239,8 +250,8 @@ exit = exit
                     subprocess.run(['sudo', 'pacman', '-S', '--needed', 'tor'])
                     subprocess.run(['sudo', 'systemctl', 'restart', 'tor'])
 
-            elif torchoice == "exit":
-                break
+            elif torchoice == "4":
+                exit
  
         elif choice == "i":
             installchoice = input(asdians("are u sure you want to install? (WARNING: BlackArch SHA256 ISNT verified from this tool, IT could be dns spoofed, corrupted downloads, etc.) (y/n):"))
@@ -253,7 +264,7 @@ exit = exit
                                                
                                                
                                                """)
-                subprocess.run(['sudo', 'pacman', '-S', 'nmap', 'nikto', 'whois', 'inetutils', 'dirb', 'subfinder', 'proxychains', 'python-requests', 'sqlmap'])
+                subprocess.run(['sudo', 'pacman', '-S', 'nmap', 'nikto', 'whois', 'inetutils', 'dirb', 'subfinder', 'proxychains', 'python-requests', 'sqlmap', 'macchanger'])
                 subprocess.run(['yay', '-S', 'holehe', 'sherlock'])
                 subprocess.run(['curl', '-O', 'https://blackarch.org/strap.sh'])
                 subprocess.run(['chmod', '+x', 'strap.sh'])
@@ -274,20 +285,25 @@ exit = exit
  
         elif choice == '9':
             menus("""
-░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓███████▓▒░ 
-░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
- ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
- ░▒▓█▓▒▒▓█▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░  
-  ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░ 
-  ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░ 
-   ░▒▓██▓▒░  ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░  
-                                                      
-                                                      
-1 = Mullvad VPN (Official Repos)
-2 = Proton VPN  (Official Repos)
-3 = Riseup VPN  (AUR - Requires YAY)
-exit = exit
-(open a github issue if u want more added.)
+╔══════════════════════════════════════════════════════════════════════╗
+║                          VPN MANAGER                                 ║
+╠══════════════════════════════════════════════════════════════════════╣
+║        ░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓███████▓▒░         ║
+║        ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ║
+║         ░▒▓█▓▒▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ║
+║         ░▒▓█▓▒▒▓█▓▒░░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░          ║
+║          ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░         ║
+║          ░▒▓█▓▓█▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░         ║
+║           ░▒▓██▓▒░  ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░          ║
+║                                                                      ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  [1] Mullvad VPN        Official Repos                               ║
+║  [2] Proton VPN         Official Repos                               ║
+║  [3] Riseup VPN         AUR - Requires YAY                           ║
+║                                                                      ║
+║  [4] Back                                                            ║
+╚══════════════════════════════════════════════════════════════════════╝
+   (open a github issue if u want more added.)
 """)
             vpnchoice = input(asdians("What VPN? (1,2,3):"))
 
@@ -306,8 +322,8 @@ exit = exit
                 asdians("Warning: You need YAY installed.")
                 subprocess.run(['yay', '-S', 'riseup-vpn'])
 
-            elif vpnchoice == "exit":
-                break
+            elif vpnchoice == "4":
+                exit
 
         elif choice == '10':
             holechoice = input(asdians("email?:"))
@@ -327,11 +343,36 @@ exit = exit
             wpchoice = input("URL:")
             subprocess.run(['wpscan', '--url', wpchoice])
 
-        elif choice == 'q':
-            asdians("EXITING RXVY RECON")
+        elif choice == '15':
+            macchoice = input("""
+SUDO IS USED IN THIS TOOL! 
+╔══════════════════════════════════════════╗
+║           M A C   C H A N G E R          ║
+╚══════════════════════════════════════════╝
 
-        else:
-             asdians("please pick a valid option.")
+  ███╗   ███╗ █████╗  ██████╗
+  ████╗ ████║██╔══██╗██╔════╝
+  ██╔████╔██║███████║██║     
+  ██║╚██╔╝██║██╔══██║██║     
+  ██║ ╚═╝ ██║██║  ██║╚██████╗
+  ╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+
+╔══════════════════════════════════════════╗
+║  [1] Randomize enp4s0  (Ethernet)        ║
+║  [2] Randomize wlp5s0  (WiFi)            ║
+║                                          ║
+║  [3] Back                                ║
+╚══════════════════════════════════════════╝
+
+""")
+            if macchoice == '1':
+                subprocess.run(['sudo', 'macchanger', 'enp4s0', '--random'])
+
+            elif macchoice == '2':
+                subprocess.run(['sudo', 'macchanger', 'wlp5s0', '--random'])
+
+            elif macchoice == '3':
+                exit
 try:
    main()
 except KeyboardInterrupt:
