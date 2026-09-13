@@ -6,7 +6,7 @@
 
 Created by **rxvy** · Version 2.0
 
-![ANON CYBER CLI screenshot](image2.png)
+![ANON CYBER CLI screenshot](image3.png)
 
 </div>
 
