@@ -1,0 +1,19 @@
+# Downloaded by the install flow — don't commit a fetched copy
+strap.sh
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Editor/OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local config, if you ever add one
+config.py
+*.local.py
