@@ -4,7 +4,11 @@ A lightweight Python CLI for launching common cybersecurity and reconnaissance t
 
 **Created by rxvy · Version 3.0**
 
-![rxvy-recon banner](./Banner.svg)
+![rxvy-recon banner](./banner.svg)
+
+## In Action
+
+![rxvy-recon running](./image3.png)
 
 ## Overview
 
