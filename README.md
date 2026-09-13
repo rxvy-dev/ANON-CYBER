@@ -209,10 +209,11 @@ RXVY RECON targets **Arch Linux / BlackArch**.
 ## 🚀 Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/rxvy-recon.git
-cd rxvy-recon
+# 1. Download
+Download the .py file from the github repo
 
+# 2. Move to /home/USER/
+mv ~/Downloads/rxvyrecon.py ~/
 # 2. Launch
 python3 rxvyrecon.py
 
