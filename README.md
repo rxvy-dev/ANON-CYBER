@@ -1,26 +1,18 @@
 <div align="center">
 ⚡ RXVY RECON
 
-A lightweight Python CLI for reconnaissance and authorized security testing.
+A lightweight Python CLI for launching cybersecurity and reconnaissance tools from one terminal interface.
 
 Created by rxvy · Version 2.0
 
-</div>
+<img src="image3.png" alt="RXVY RECON screenshot" width="850"> </div>
 📖 Overview
 
-RXVY RECON is a lightweight terminal-based Python CLI that brings commonly used reconnaissance and security-testing utilities together under one interactive menu.
+RXVY RECON is a lightweight terminal-based cybersecurity toolkit that brings common reconnaissance and security-testing utilities together behind a simple interactive menu.
 
-Instead of remembering individual commands and options, choose a tool, provide your target, and let RXVY RECON launch it for you.
+Instead of remembering commands and flags for every tool, select an option, enter your target, and let RXVY RECON launch the appropriate utility.
 
-Designed for:
-
-🔬 Security research
-🧪 CTFs and intentionally vulnerable labs
-🛡️ Authorized penetration testing
-📚 Cybersecurity learning
-🔎 Reconnaissance workflows
-
-RXVY RECON is intentionally simple and customizable, making it easy to add your own tools, commands, and workflows.
+Designed for CTFs, personal labs, security research, and authorized penetration testing.
 
 ✨ Features
 Tool	Purpose
@@ -36,48 +28,41 @@ Sherlock	Username OSINT
 SQLMap	SQL-injection testing
 WPScan	WordPress security scanning
 Additional Features
-🔧 Built-in dependency installation
-🧅 Tor service controls
+🔧 Built-in dependency installer
+🧅 Tor management
 🔐 VPN installation options
-🔗 ProxyChains support
-🖥️ Interactive terminal interface
-🎨 Custom ASCII banners and colors
-⚙️ Easy-to-modify command structure
-📝 Simple Python source code
-🚪 Quick menu exit with Q
-💻 Requirements
+🌐 ProxyChains support
+🎨 Custom ASCII interface
+⚡ Lightweight Python implementation
+🖥️ Interactive terminal menu
+🛠️ Easy to customize and extend
+📋 Requirements
 
-RXVY RECON is primarily designed for:
+RXVY RECON is primarily designed for Arch Linux / BlackArch.
 
-Arch Linux
-BlackArch Linux
-
-Basic requirements:
-
+Required
 Python 3
 sudo
 pacman
-ProxyChains
-yay for AUR packages
-
-Depending on which features you use, additional tools may include:
-
+proxychains
 nmap
 nikto
 whois
-inetutils
+ftp
 dirb
 subfinder
+Optional
+yay
 holehe
 sherlock
 sqlmap
 wpscan
-tor
+Tor
+VPN packages
 
+The built-in installer can install many of the required dependencies automatically.
 
-The built-in installer can install many of the required dependencies.
-
-⚠️ The installer may download and execute third-party installation scripts with elevated privileges. Review scripts and verify their sources before running them.
+⚠️ Review installation commands before running them with root privileges. The installer may add external repositories or execute installation scripts.
 
 🚀 Installation
 
@@ -92,16 +77,7 @@ Run RXVY RECON:
 python3 rxvyrecon.py
 
 
-Then select the installation option from the menu.
-
-Manual Installation
-
-If you prefer installing dependencies yourself:
-
-sudo pacman -S nmap nikto whois inetutils dirb subfinder proxychains sqlmap
-
-
-AUR tools can be installed separately with yay where available.
+You can then select the installation option from the menu to install the required dependencies.
 
 🕹️ Usage
 
@@ -114,121 +90,99 @@ You'll be presented with the RXVY RECON menu.
 
 Example:
 
-╔══════════════════════════════════════════╗
-║              RXVY RECON                  ║
-╠══════════════════════════════════════════╣
-║ 1  - Nmap                                ║
-║ 2  - Nikto                               ║
-║ 3  - WHOIS                               ║
-║ 4  - FTP                                 ║
-║ 5  - DIRB                                ║
-║ 6  - Subfinder                           ║
-║ 7  - Nmap OS Detection                   ║
-║ 8  - Tor                                 ║
-║ 9  - VPN                                 ║
-║ 10 - Holehe                              ║
-║ 11 - ZPhisher                            ║
-║ 12 - Sherlock                            ║
-║ 13 - SQLMap                              ║
-║ 14 - WPScan                              ║
-║ Q  - Exit                                ║
-╚══════════════════════════════════════════╝
+╔════════════════════════════════════════════════════════════╗
+║                      RXVY RECON                            ║
+╠════════════════════════════════════════════════════════════╣
+║  1. Nmap                                                   ║
+║  2. Nikto                                                  ║
+║  3. WHOIS                                                  ║
+║  4. FTP                                                    ║
+║  5. DIRB                                                   ║
+║  6. Subfinder                                              ║
+║  7. Nmap OS Detection                                      ║
+║  8. Tor                                                    ║
+║  9. VPN                                                    ║
+║ 10. Holehe                                                 ║
+║ 11. Sherlock                                               ║
+║ 12. SQLMap                                                 ║
+║ 13. WPScan                                                 ║
+║ 14. Exit                                                   ║
+╚════════════════════════════════════════════════════════════╝
 
 
-Select an option and provide the requested target.
+Select a tool and provide the target when prompted.
 
-For example:
-
+Example
 Choose: 1
-ip or url: scanme.nmap.org
+IP or URL: scanme.nmap.org
 
 
-⚠️ Only scan or test systems that you own or have explicit permission to assess.
+⚠️ Only scan systems and applications that you own or have explicit authorization to test.
 
-🧅 ProxyChains
+🌐 ProxyChains
 
-Several RXVY RECON tools are designed to run through ProxyChains.
+RXVY RECON can launch supported tools through ProxyChains.
 
-Make sure ProxyChains is properly configured before using those options.
+Make sure ProxyChains is properly configured before using options that depend on it.
 
-You can check your configuration with:
+If you don't want to use ProxyChains, remove the proxychains portion from the corresponding command in the source code.
 
-proxychains curl https://example.com
-
-
-If you don't want to use ProxyChains, modify the corresponding subprocess.run() commands in the source code and remove the proxychains argument.
-
-Important: ProxyChains does not make unauthorized activity legal or guarantee anonymity.
+Important: ProxyChains/Tor does not make unauthorized activity legal or automatically guarantee anonymity.
 
 🛠️ Customization
 
-RXVY RECON is designed to be modified.
+RXVY RECON is intentionally simple so you can modify it easily.
 
 Ideas for customization:
 
 🎨 Replace the ASCII banner
 🌈 Change terminal colors
-➕ Add new tools
-➖ Remove unwanted tools
-⚡ Create new workflows
-📋 Add command history
-📝 Add logging
+⚡ Add menu animations
+🔧 Add additional tools
+📝 Add command logging
 ⚙️ Add configuration files
-🔧 Improve dependency detection
-🚦 Add tool availability checks
-🖥️ Improve the terminal interface
+👤 Add user profiles
+🔍 Add automatic dependency detection
+❌ Improve error handling
 📊 Add scan-result summaries
+💾 Add output-file support
+🧩 Create tool-specific submenus
+⚖️ Legal & Ethical Use
 
-Adding a new menu option is as simple as adding another command handler to the main loop.
+RXVY RECON is intended for:
 
-⚠️ Legal & Ethical Use
+CTFs
+Personal cybersecurity labs
+Security research
+Educational purposes
+Authorized penetration testing
 
-RXVY RECON is intended for legitimate cybersecurity use only.
+Only use the tools against systems for which you have permission.
 
-Use this software for:
+Unauthorized scanning, exploitation, credential attacks, or access attempts may be illegal.
 
-Your own systems
-Authorized penetration tests
-CTF competitions
-Security laboratories
-Intentionally vulnerable environments
-Authorized security research
-
-Do not use RXVY RECON to scan, attack, enumerate, or access systems without permission.
-
-Unauthorized security testing may violate laws, contracts, or network policies.
-
-The author is not responsible for damage, misuse, or illegal activity involving this software.
+The author is not responsible for misuse of this software.
 
 🤝 Contributing
 
 Contributions are welcome.
 
-You can help by:
+Feel free to:
 
-Reporting bugs
-Suggesting features
-Improving documentation
-Adding new tools
-Improving the interface
-Submitting pull requests
-
-If you add a new tool, keep the implementation simple and document the required dependencies.
-
-📜 License
-
-This project is open source.
-
-See the repository's license file for the applicable license and usage terms.
-
-👤 Credits
+Open issues
+Submit pull requests
+Suggest new tools
+Improve the interface
+Fix bugs
+Improve documentation
+🙌 Credits
 
 Created and maintained by rxvy.
 
 <div align="center">
 ⚡ RXVY RECON
 
-Recon. Research. Learn.
+Recon • Research • Learn • Secure
 
 ⭐ If you find RXVY RECON useful, consider starring the repository.
 
