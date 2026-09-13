@@ -1,27 +1,51 @@
 <div align="center">
 
-# ⚡ RXVY RECON
+```
+ ██████╗ ██╗  ██╗██╗   ██╗██╗   ██╗    ██████╗ ███████╗ ██████╗ ██████╗ ███╗   ██╗
+ ██╔══██╗╚██╗██╔╝██║   ██║╚██╗ ██╔╝    ██╔══██╗██╔════╝██╔════╝██╔═══██╗████╗  ██║
+ ██████╔╝ ╚███╔╝ ██║   ██║ ╚████╔╝     ██████╔╝█████╗  ██║     ██║   ██║██╔██╗ ██║
+ ██╔══██╗ ██╔██╗ ╚██╗ ██╔╝  ╚██╔╝      ██╔══██╗██╔══╝  ██║     ██║   ██║██║╚██╗██║
+ ██║  ██║██╔╝ ██╗ ╚████╔╝    ██║       ██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║
+ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝     ╚═╝       ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝
+```
 
-**Recon • Research • Security**
+### One terminal. Every recon tool you actually use.
 
-A lightweight terminal-based cybersecurity toolkit for Arch Linux.
-
-![Platform](https://img.shields.io/badge/platform-Arch%20%2F%20BlackArch-1793D1?logo=arch-linux&logoColor=white)
-![Python](https://img.shields.io/badge/python-3-3776AB?logo=python&logoColor=white)
-![License](https://img.shields.io/badge/license-Educational%20Use-orange)
-![Version](https://img.shields.io/badge/version-v3.0-success)
+[![Platform](https://img.shields.io/badge/platform-Arch%20%2F%20BlackArch-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](#-requirements)
+[![Python](https://img.shields.io/badge/python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](#-requirements)
+[![Version](https://img.shields.io/badge/version-v3.0-success?style=for-the-badge)](#)
+[![License](https://img.shields.io/badge/license-Educational%20Use-orange?style=for-the-badge)](#%EF%B8%8F-legal)
+[![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen?style=for-the-badge)](#)
 
 <img src="image3.png" alt="RXVY RECON" width="900">
 
+<br>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=E53935&center=true&vCenter=true&width=650&lines=Recon.+Research.+Security.;14+tools.+One+menu.+Zero+memorized+flags.;Built+for+Arch+%2F+BlackArch." alt="Typing SVG" />
+
+<br><br>
+
+**[Features](#-features)** ·
+**[Tools](#-tools)** ·
+**[Install](#-installation)** ·
+**[Usage](#-usage)** ·
+**[Tor & VPN](#-tor--vpn)** ·
+**[Legal](#%EF%B8%8F-legal)** ·
+**[Contributing](#-contributing)**
+
 </div>
+
+<br>
 
 ---
 
 ## ⚡ What is RXVY RECON?
 
-**RXVY RECON** is a simple terminal interface for launching commonly used cybersecurity, reconnaissance, and security-testing utilities — without the hassle of memorizing dozens of commands and flags.
+**RXVY RECON** is a lightweight terminal control panel for the recon, OSINT, and security-testing tools you already use — so you stop memorizing flags and start picking numbers.
 
-One menu. Every tool you need.
+> Pick a tool → drop in a target → hit enter. That's the whole workflow.
+
+<div align="center">
 
 ```
                          RXVY-RECON v3.0
@@ -48,71 +72,107 @@ One menu. Every tool you need.
         [I]  Install Dependencies         [Q] Exit
 ```
 
-Choose a tool → enter your target → run.
+</div>
 
-Designed for CTFs, labs, learning, research, and **authorized** security testing.
+Built for **CTFs**, home labs, security research, and **authorized** penetration testing.
 
----
-
-## 🧰 Tools
-
-| Tool | Category | Function |
-|------|----------|----------|
-| **Nmap** | Network | Port & service scanning |
-| **Nmap -O** | Network | OS detection |
-| **Nikto** | Web | Web-server testing |
-| **WHOIS** | OSINT | Domain information |
-| **FTP** | Network | FTP connections |
-| **DIRB** | Web | Directory enumeration |
-| **Subfinder** | Recon | Passive subdomain discovery |
-| **Tor** | Anonymity | Enable / disable / restart the Tor service |
-| **VPN Manager** | Anonymity | Installs Mullvad, Proton VPN, or Riseup VPN |
-| **Holehe** | OSINT | Email account checks |
-| **ZPhisher** | Social Engineering | Phishing simulation for awareness training |
-| **Sherlock** | OSINT | Username searching |
-| **SQLMap** | Web | SQL injection testing |
-| **WPScan** | Web | WordPress security testing |
-
-> ⚠️ **ZPhisher** creates phishing-style login pages for **authorized security-awareness testing only** — e.g. testing your own organization's phishing resilience with informed consent. Using it against people or systems without explicit authorization is illegal in most jurisdictions.
+<br>
 
 ---
 
 ## 🔥 Features
 
-- ✅ Interactive terminal interface
-- ✅ ProxyChains support
-- ✅ Tor management
-- ✅ VPN installation menu
-- ✅ Automatic dependency installation
-- ✅ Nmap OS detection
-- ✅ Web reconnaissance tools
-- ✅ OSINT utilities
-- ✅ Phishing-awareness simulation (ZPhisher)
-- ✅ WordPress scanning
-- ✅ SQL injection testing
-- ✅ Customizable source code
-- ✅ Designed for Arch / BlackArch
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🖥️ Interface
+- Interactive terminal menu
+- Typing / reveal animations
+- Colorized output
+- Fully readable, no clutter
+
+</td>
+<td width="33%" valign="top">
+
+### 🌐 Network & Privacy
+- ProxyChains routing
+- Tor enable / disable / restart
+- VPN installer (Mullvad, Proton, Riseup)
+
+</td>
+<td width="33%" valign="top">
+
+### 🛠️ Automation
+- One-command dependency install
+- BlackArch bootstrap support
+- AUR (`yay`) package pulls
+- Auto git-clone for extra tools
+
+</td>
+</tr>
+</table>
+
+| | |
+|---|---|
+| ✅ | Nmap port scanning **and** OS fingerprinting |
+| ✅ | Web recon: Nikto, DIRB, Subfinder, WPScan |
+| ✅ | OSINT: WHOIS, Holehe, Sherlock |
+| ✅ | SQLMap injection wizard |
+| ✅ | Phishing-awareness simulation (ZPhisher) |
+| ✅ | Fully open, hackable source code |
+
+<br>
+
+---
+
+## 🧰 Tools
+
+<div align="center">
+
+| # | Tool | Category | What it does |
+|:-:|:--|:--|:--|
+| 01 | 🛰️ **Nmap** | Network | Port & service scanning |
+| 02 | 🕵️ **Nmap `-O`** | Network | Operating-system detection |
+| 03 | 🌍 **Nikto** | Web | Web-server vulnerability scanning |
+| 04 | 📇 **WHOIS** | OSINT | Domain / IP registration lookup |
+| 05 | 📁 **FTP** | Network | FTP connections |
+| 06 | 📂 **DIRB** | Web | Directory / path enumeration |
+| 07 | 🔗 **Subfinder** | Recon | Passive subdomain discovery |
+| 08 | 🧅 **Tor** | Anonymity | Enable / disable / restart the Tor service |
+| 09 | 🔒 **VPN Manager** | Anonymity | Installs Mullvad, Proton VPN, or Riseup VPN |
+| 10 | 📧 **Holehe** | OSINT | Checks which sites an email is registered on |
+| 11 | 🎣 **ZPhisher** | Social Engineering | Phishing-page simulation for awareness testing |
+| 12 | 🔎 **Sherlock** | OSINT | Username search across platforms |
+| 13 | 💉 **SQLMap** | Web | Automated SQL injection testing |
+| 14 | 🔧 **WPScan** | Web | WordPress vulnerability scanning |
+
+</div>
+
+> ⚠️ **ZPhisher** generates phishing-style login pages. Use it **only** for authorized security-awareness testing — e.g. your own org testing its employees with informed consent. Pointing it at real people without authorization is credential theft / fraud in most jurisdictions.
+
+<br>
 
 ---
 
 ## 🖥️ Requirements
 
-RXVY RECON is primarily designed for **Arch Linux / BlackArch**.
+RXVY RECON targets **Arch Linux / BlackArch**.
 
 <table>
 <tr>
-<td valign="top">
+<td valign="top" width="33%">
 
-**Core**
+**⚙️ Core**
 - Python 3
 - pacman
 - sudo
 - ProxyChains
 
 </td>
-<td valign="top">
+<td valign="top" width="33%">
 
-**Recon (pacman)**
+**📡 Recon (pacman)**
 - nmap
 - nikto
 - whois
@@ -123,165 +183,190 @@ RXVY RECON is primarily designed for **Arch Linux / BlackArch**.
 - python-requests
 
 </td>
-<td valign="top">
+<td valign="top" width="33%">
 
-**Optional (yay / manual)**
+**🧩 Optional (yay / manual)**
 - holehe
 - sherlock
 - wpscan
 - tor
-- zphisher (cloned from GitHub)
-- BlackArch strap.sh
+- zphisher *(git-cloned)*
+- BlackArch `strap.sh`
 
 </td>
 </tr>
 </table>
 
-> The `[I] Install Dependencies` menu option automates most of this — installing pacman packages, pulling `holehe`/`sherlock` via `yay`, running the official BlackArch `strap.sh` bootstrap script, and cloning the ZPhisher repo.
+> 💡 The `[I] Install Dependencies` menu option automates most of this: pacman packages → `yay` for `holehe`/`sherlock` → official BlackArch `strap.sh` bootstrap → git-clone of ZPhisher.
 >
-> ⚠️ The installer downloads and executes `strap.sh` directly from blackarch.org. This tool does **not** verify its SHA256 checksum before running it — review the script yourself first if you want to confirm it hasn't been tampered with or corrupted in transit.
+> ⚠️ `strap.sh` is downloaded and executed directly from blackarch.org **without** SHA256 verification in this tool. Review it yourself first if you want to confirm it hasn't been tampered with or corrupted in transit.
+
+<br>
 
 ---
 
 ## 🚀 Installation
 
-**1. Clone the repository**
-
 ```bash
+# 1. Clone the repository
 git clone https://github.com/YOUR_USERNAME/rxvy-recon.git
 cd rxvy-recon
-```
 
-**2. Launch**
-
-```bash
+# 2. Launch
 python3 rxvyrecon.py
+
+# 3. Inside the menu, install dependencies
+Choose: I
 ```
 
-**3. Install dependencies**
-
-Use the install option from the main menu.
+<br>
 
 ---
 
 ## 🎯 Usage
 
-Start RXVY RECON:
-
 ```bash
 python3 rxvyrecon.py
 ```
 
-You'll see the interactive menu. For example:
-
-```
+```text
 Choose: 1
 ip or url: scanme.nmap.org
 ```
 
-RXVY RECON then launches the corresponding tool.
+RXVY RECON launches the matching tool with your input — that's the whole interaction loop.
+
+<br>
 
 ---
 
 ## 🌐 ProxyChains
 
-Several RXVY RECON options are designed to run through ProxyChains. Configure ProxyChains **before** using those options.
+Several options route through ProxyChains. **Configure it before you use them.**
 
-```
-ProxyChains
-     │
-     ▼
- RXVY RECON
-     │
-     ├── Nmap
-     ├── Nikto
-     ├── DIRB
-     └── Subfinder
+```mermaid
+flowchart LR
+    A[ProxyChains] --> B[RXVY RECON]
+    B --> C[Nmap]
+    B --> D[Nikto]
+    B --> E[DIRB]
+    B --> F[Subfinder]
 ```
 
-> ⚠️ ProxyChains or Tor does not make unauthorized activity legal or guarantee anonymity.
+> ⚠️ ProxyChains or Tor does **not** make unauthorized activity legal, nor does it guarantee anonymity.
+
+<br>
 
 ---
 
 ## 🧅 Tor & VPN
 
-RXVY RECON includes a small menu (options `[8]` and `[9]`) for managing Tor and installing supported VPN packages.
+<table>
+<tr>
+<td valign="top" width="50%">
 
+**TOR** — menu option `[8]`
 ```
-TOR ([8])                     VPN ([9])
- ├── 1  Enable                 ├── 1  Mullvad     (pacman)
- ├── 2  Disable                ├── 2  Proton VPN  (GUI or CLI, pacman)
- ├── 3  Restart                ├── 3  Riseup VPN  (AUR — requires yay)
- └── exit                      └── exit
+1 = Enable
+2 = Disable
+3 = Restart
+exit = back to main menu
+```
+Each action asks for a **y/n confirmation** before touching your system's Tor service.
+
+</td>
+<td valign="top" width="50%">
+
+**VPN MANAGER** — menu option `[9]`
+```
+1 = Mullvad     (pacman)
+2 = Proton VPN  (GUI or CLI, pacman)
+3 = Riseup VPN  (AUR — needs yay)
+exit = back to main menu
 ```
 
-Tor actions ask for a **y/n confirmation** before installing or changing the service state. Riseup VPN requires `yay` to be installed first.
+</td>
+</tr>
+</table>
+
+<br>
 
 ---
 
 ## 🎨 Customization
 
-The project is intentionally lightweight and easy to modify:
+The codebase is small on purpose — it's meant to be forked and bent into your own shape.
 
-- ASCII banners
-- Colors
-- Menu layout
-- Animations
-- Tools
-- Commands
-- Dependency installation
-- Error handling
-- Logging
-- Configuration
-- Output handling
+```mermaid
+mindmap
+  root((RXVY RECON))
+    Interface
+      ASCII banners
+      Colors
+      Animations
+    Behavior
+      Menu layout
+      New tools
+      Commands
+    Reliability
+      Error handling
+      Logging
+      Config/profiles
+```
 
-Want another tool? Add it to the menu and wire it into `subprocess.run()`.
+Adding a tool takes two lines: a menu entry and a `subprocess.run([...])` call.
+
+<br>
 
 ---
 
 ## ⚠️ Legal
 
-RXVY RECON is intended for:
+RXVY RECON is built for:
 
-- CTFs
-- Cybersecurity education
-- Personal labs
-- Security research
-- Authorized penetration testing
+`CTFs` · `Cybersecurity education` · `Personal labs` · `Security research` · `Authorized penetration testing`
 
 **Only test systems you own or have explicit permission to test.**
 
 Do not use RXVY RECON to gain unauthorized access, attack systems, steal credentials, or disrupt services.
 
-**ZPhisher specifically** must only be used against your own accounts/infrastructure or as part of a sanctioned, consent-based phishing-awareness exercise (e.g. an internal security team testing employees with prior authorization). Using it to target real third parties without consent is credential theft/fraud in most jurisdictions.
+**ZPhisher specifically** must only be used against your own accounts/infrastructure, or as part of a sanctioned, consent-based phishing-awareness exercise. Using it against real third parties without authorization is illegal in most jurisdictions.
 
 The author is not responsible for misuse of this project.
+
+<br>
 
 ---
 
 ## 🤝 Contributing
 
-Found a bug? Have an idea? Want to add another tool?
+<div align="center">
 
-Feel free to:
+| 🐛 Bug found | 💡 Idea | 🛠️ New tool | 📖 Docs |
+|:---:|:---:|:---:|:---:|
+| [Open an issue](../../issues) | [Start a discussion](../../issues) | [Submit a PR](../../pulls) | [Improve the docs](../../pulls) |
 
-- 🐛 Open an issue
-- 🔧 Submit a pull request
-- 🎨 Improve the interface
-- 🛠️ Add new tools
-- 📖 Improve documentation
-- 🩹 Fix bugs
+</div>
+
+<br>
 
 ---
 
 <div align="center">
 
-### ⚡ RXVY RECON
+```
+ ██████╗ ██╗  ██╗██╗   ██╗██╗   ██╗
+ ██╔══██╗╚██╗██╔╝██║   ██║╚██╗ ██╔╝
+ ██████╔╝ ╚███╔╝ ██║   ██║ ╚████╔╝
+ ██╔══██╗ ██╔██╗ ╚██╗ ██╔╝  ╚██╔╝
+ ██║  ██║██╔╝ ██╗ ╚████╔╝    ██║
+ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝     ╚═╝
+```
 
 **RECON • RESEARCH • LEARN • SECURE**
 
-Created and maintained by **rxvy**
+Created and maintained by **[rxvy](../../)**
 
-⭐ *Star the repository if you find it useful.*
+⭐ **If this saved you time, star the repo — it actually helps.**
 
 </div>
